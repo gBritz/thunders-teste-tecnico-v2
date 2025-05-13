@@ -1,4 +1,7 @@
-﻿# Introdução  
+[![Build status](https://ci.appveyor.com/api/projects/status/tystkhnkvkamrsf6?svg=true)](https://ci.appveyor.com/project/Britz/thunders-teste-tecnico-v2)
+[![codecov](https://codecov.io/gh/gBritz/thunders-teste-tecnico-v2/graph/badge.svg?token=SKDG666XJB)](https://codecov.io/gh/gBritz/thunders-teste-tecnico-v2)
+ 
+ # Introdução  
 
 Bem-vindo ao teste técnico da Thunders! 🚀 
 
