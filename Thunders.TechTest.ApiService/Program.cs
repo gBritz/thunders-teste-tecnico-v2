@@ -20,7 +20,7 @@ if (features.UseMessageBroker)
 
 if (features.UseEntityFramework)
 {
-    builder.Services.AddSqlServerDbContext<DbContext>(builder.Configuration);
+    builder.Services.AddSqlServerDbContext<TollDbContext>(builder.Configuration);
 }
 
 
