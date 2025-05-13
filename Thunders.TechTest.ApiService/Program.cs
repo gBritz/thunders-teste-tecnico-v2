@@ -23,6 +23,7 @@ if (features.UseEntityFramework)
     builder.Services.AddSqlServerDbContext<TollDbContext>(builder.Configuration);
 }
 
+builder.Services.AddHostedService<EFDataSeedingHostedService>();
 
 var app = builder.Build();
 
