@@ -1,0 +1,40 @@
+image: Visual Studio 2022
+
+version: 0.1.{build}
+
+skip_tags: true
+
+configuration: Release
+
+install:
+  - choco install dotnet-sdk --version 8.0.100
+  - choco install codecov
+
+branches:
+  only:
+  - main
+  - develop
+  - chore/*
+  - feat/*
+  - fix/*
+  - test/*
+  - refactor/*
+
+environment:
+  CODECOV_TOKEN:
+    secure: 8MrpXXgplRe3QjDLluWLklyyEt04M0EclqHKaDHqc3YOurRyxUlaCyPMXgrqCHxE
+
+before_build:
+  - dotnet restore Thunders.TechTest.sln
+
+build_script:
+  - dotnet build Thunders.TechTest.sln --no-restore --configuration Release
+
+test_script:
+  - dotnet test Thunders.TechTest.sln --no-build --configuration Release --results-directory "test_results" --collect:"XPlat Code Coverage;Format=cobertura"
+
+after_test:
+  - pwsh: codecov --file @(Get-ChildItem -Path test_results/*/coverage.cobertura.xml -Recurse)
+
+artifacts:
+  - path: test_results/*/coverage.cobertura.xml
