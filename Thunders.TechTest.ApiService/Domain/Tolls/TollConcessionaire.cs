@@ -24,4 +24,9 @@ public class TollConcessionaire : IEntity
     /// Date record creation.
     /// </summary>
     public DateTime CreatedAt { get; init; }
+
+    /// <summary>
+    /// List of toll plazas.
+    /// </summary>
+    public virtual ICollection<TollPlaza> Plazas { get; init; } = [];
 }

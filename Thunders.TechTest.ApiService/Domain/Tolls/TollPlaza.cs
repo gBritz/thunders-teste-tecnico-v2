@@ -11,11 +11,6 @@ public class TollPlaza : IEntity
     public Guid Id { get; private set; }
 
     /// <summary>
-    /// Name of toll.
-    /// </summary>
-    public required string Name { get; init; }
-
-    /// <summary>
     /// Name of highway.
     /// </summary>
     public required string Highway { get; init; }
@@ -54,4 +49,14 @@ public class TollPlaza : IEntity
     /// Concessionarie company of toll.
     /// </summary>
     public required TollConcessionaire Concessionaire { get; init; }
+
+    public static TollPlaza New(Guid id) =>
+        new()
+        {
+            Id = id,
+            City = default!,
+            Concessionaire = default!,
+            Highway = default!,
+            State = default!,
+        };
 }
