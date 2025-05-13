@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 using Thunders.TechTest.ApiService;
 using Thunders.TechTest.OutOfBox.Database;
 using Thunders.TechTest.OutOfBox.Queues;
@@ -6,7 +6,20 @@ using Thunders.TechTest.OutOfBox.Queues;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
-builder.Services.AddControllers();
+builder.Services
+    .AddControllers(options =>
+    {
+        options.ModelValidatorProviders.Clear();
+        options.Filters.Add<ValidationFilter>();
+    })
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    });
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.RegisterApplication();
 
 var features = Features.BindFromConfiguration(builder.Configuration);
 
