@@ -28,7 +28,8 @@ builder.Services.AddProblemDetails();
 
 if (features.UseMessageBroker)
 {
-    builder.Services.AddBus(builder.Configuration, new SubscriptionBuilder());
+    builder.Services.AddBus(builder.Configuration, new SubscriptionBuilder()
+        .Add<RegisterPaymentConsumer>());
 }
 
 if (features.UseEntityFramework)
