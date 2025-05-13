@@ -1,5 +1,9 @@
 using System.Text.Json.Serialization;
 using Thunders.TechTest.ApiService;
+using Thunders.TechTest.ApiService.Application;
+using Thunders.TechTest.ApiService.CrossCutting.Web;
+using Thunders.TechTest.ApiService.Data;
+using Thunders.TechTest.ApiService.Messaging.Tolls.RegisterPayment;
 using Thunders.TechTest.OutOfBox.Database;
 using Thunders.TechTest.OutOfBox.Queues;
 
