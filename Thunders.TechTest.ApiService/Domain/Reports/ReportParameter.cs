@@ -17,5 +17,9 @@ public class ReportParameter : IEntity
 
     public long ValueAsLong() => Convert.ToInt64(Value);
 
-    public T ValueAsEnum<T>() => (T)Enum.Parse(typeof(T), Value);
+    public Guid[] ValueAsArrayOfGuid() =>
+        Value.Split(',', StringSplitOptions.RemoveEmptyEntries)
+            .Select(i => Guid.TryParse(i, out var result) ? result : Guid.Empty)
+            .Where(i => i != Guid.Empty)
+            .ToArray();
 }
