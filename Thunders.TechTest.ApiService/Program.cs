@@ -3,6 +3,7 @@ using Thunders.TechTest.ApiService;
 using Thunders.TechTest.ApiService.Application;
 using Thunders.TechTest.ApiService.CrossCutting.Web;
 using Thunders.TechTest.ApiService.Data;
+using Thunders.TechTest.ApiService.Messaging.Reports.GenerateReport;
 using Thunders.TechTest.ApiService.Messaging.Tolls.RegisterPayment;
 using Thunders.TechTest.OutOfBox.Database;
 using Thunders.TechTest.OutOfBox.Queues;
@@ -33,7 +34,8 @@ builder.Services.AddProblemDetails();
 if (features.UseMessageBroker)
 {
     builder.Services.AddBus(builder.Configuration, new SubscriptionBuilder()
-        .Add<RegisterPaymentConsumer>());
+        .Add<RegisterPaymentConsumer>()
+        .Add<GenerateReportConsumer>());
 }
 
 if (features.UseEntityFramework)
