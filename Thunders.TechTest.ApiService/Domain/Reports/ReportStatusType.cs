@@ -16,9 +16,9 @@ public enum ReportStatusType
     Started = 2,
 
     /// <summary>
-    /// Report process was finished.
+    /// Report generated successfully.
     /// </summary>
-    Finished = 3,
+    Generated = 3,
 
     /// <summary>
     /// Error happens during report process.

@@ -13,7 +13,7 @@ public class Report : IEntity
 
     public DateTimeOffset? FinishedAt { get; set; }
 
-    public TimeOnly? ElapsedExecution { get; set; }
+    public TimeSpan? ElapsedExecution { get; set; }
 
     public required string FileName { get; init; }
 
@@ -31,5 +31,5 @@ public class Report : IEntity
 
 	public string? PostbackUrl { get; set; }
 
-    public ICollection<ReportParameter> Parameters { get; init; } = new List<ReportParameter>();
+    public ICollection<ReportParameter> Parameters { get; init; } = [];
 }
