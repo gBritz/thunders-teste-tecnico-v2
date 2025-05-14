@@ -45,5 +45,9 @@ internal class TollPlazaConfiguration : IEntityTypeConfiguration<TollPlaza>
         builder.HasOne(_ => _.Concessionaire)
             .WithMany(_ => _.Plazas)
             .HasForeignKey("ConcessionaireId");
+
+        builder.HasMany(_ => _.Payments)
+            .WithOne(_ => _.Plaza)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

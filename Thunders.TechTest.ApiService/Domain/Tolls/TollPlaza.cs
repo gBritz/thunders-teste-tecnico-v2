@@ -50,6 +50,11 @@ public class TollPlaza : IEntity
     /// </summary>
     public required TollConcessionaire Concessionaire { get; init; }
 
+    /// <summary>
+    /// Payments in plaza of toll.
+    /// </summary>
+    public ICollection<TollPayment> Payments { get; init; } = [];
+
     public static TollPlaza New(Guid id) =>
         new()
         {
