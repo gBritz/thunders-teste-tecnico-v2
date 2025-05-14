@@ -17,10 +17,7 @@ public class VehicleClassificationByTollPlazaDataCollector(TollDbContext dbConte
         var maxPlazasPerMonthParameter = report.GetParameterByName("PLAZAS_IDS");
         if (maxPlazasPerMonthParameter is not null)
         {
-            plazasIdsToFilter = maxPlazasPerMonthParameter.Value.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                .Select(i => Guid.TryParse(i, out var result) ? result : Guid.Empty)
-                .Where(i => i != Guid.Empty)
-                .ToArray();
+            plazasIdsToFilter = maxPlazasPerMonthParameter.ValueAsArrayOfGuid();
         }
 
         IQueryable<TollPayment> query = dbContext.Set<TollPayment>();
