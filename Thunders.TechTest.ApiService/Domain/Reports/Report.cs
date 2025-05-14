@@ -32,4 +32,7 @@ public class Report : IEntity
 	public string? PostbackUrl { get; set; }
 
     public ICollection<ReportParameter> Parameters { get; init; } = [];
+
+    public ReportParameter? GetParameterByName(string parameterName) =>
+        Parameters.FirstOrDefault(p => p.Name.Equals(parameterName, StringComparison.OrdinalIgnoreCase));
 }

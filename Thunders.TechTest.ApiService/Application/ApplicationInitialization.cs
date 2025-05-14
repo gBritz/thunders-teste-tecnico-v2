@@ -4,6 +4,8 @@ using Infrastructure.Domain.Mediator;
 using Thunders.TechTest.ApiService.CrossCutting.Extensions;
 using Thunders.TechTest.ApiService.CrossCutting.Mediator.Abstractions;
 using Thunders.TechTest.ApiService.CrossCutting.Validations;
+using Thunders.TechTest.ApiService.Domain.Reports.Execution;
+using Thunders.TechTest.ApiService.Services.Reports;
 using Thunders.TechTest.OutOfBox.Queues;
 
 namespace Thunders.TechTest.ApiService.Application;
@@ -22,6 +24,8 @@ internal static class ApplicationInitialization
         services.AddScoped<ValidationContext>();
 
         services.AddSingleton<IMessageSender, RebusMessageSender>();
+        services.AddTransient<IFileStorage, LocalFileStorage>();
+        services.AddScoped<IReportExecutorFactory, ReportExecutorFactory>();
 
         return services;
     }
