@@ -11,6 +11,9 @@ Lembre-se: você não está sozinho nessa jornada! Caso tenha qualquer dúvida o
 
 Boa sorte e mãos à obra! Estamos ansiosos para ver o que você pode criar. 
 
+# Aplicando estrutura banco de dados
+Instruções de como configurar a estrutura base com [versionamento do banco de dados](/.docs/database-versioning.md)
+
 # Requisitos Funcionais 
 
 O governo anunciou a abertura de uma licitação para o desenvolvimento e implementação de um sistema informatizado voltado à geração de relatórios detalhados de faturamento das unidades de pedágio do país. Como vencedor dessa licitação, você será responsável por projetar e implementar uma solução eficiente e escalável, 
