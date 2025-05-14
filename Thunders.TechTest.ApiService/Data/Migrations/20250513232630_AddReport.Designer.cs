@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Thunders.TechTest.ApiService.Data;
 
@@ -11,9 +12,11 @@ using Thunders.TechTest.ApiService.Data;
 namespace Thunders.TechTest.ApiService.Data.Migrations
 {
     [DbContext(typeof(TollDbContext))]
-    partial class TollDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250513232630_AddReport")]
+    partial class AddReport
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

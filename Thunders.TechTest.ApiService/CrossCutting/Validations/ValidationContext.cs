@@ -7,6 +7,11 @@ namespace Thunders.TechTest.ApiService.CrossCutting.Validations;
 /// </summary>
 public class ValidationContext
 {
+    public static class ErrorCodes
+    {
+        public static readonly string NotFound = "NOT_FOUND";
+    }
+
     /// <summary>
     ///   A lista de mensagens de validação.
     /// </summary>
@@ -31,6 +36,22 @@ public class ValidationContext
     public void Clear()
     {
         _validationMessages.Clear();
+    }
+
+    /// <summary>
+    ///   Adiciona uma mensagem de validação ao contexto.
+    /// </summary>
+    /// <param name="validationMessage">A mensagem de validação.</param>
+    /// <returns>O contexto de validação atual.</returns>
+    public ValidationContext AddNotFound(string propertyName, string entityName, Guid id)
+    {
+        AddValidation(new()
+        {
+            ErrorCode = ErrorCodes.NotFound,
+            PropertyName = propertyName,
+            ErrorMessage = $"Not found {entityName} by #{id}",
+        });
+        return this;
     }
 
     /// <summary>
